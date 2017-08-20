@@ -1,9 +1,11 @@
 ---
 layout: default
 ---
+# [](#header-1)Me, Here!
 
+Hi, my name is Mingya Ma. I am a senior student at University of Minnesota studying computer science. I am currently looking for jobs in software engineering and related fields. Plz contact me at maxxx950@umn.edu or 5857481507! Welcome to view my [LinkedIn profile](https://www.linkedin.com/in/mingya-m-273317a1), and you can also view my resume on the right side! 
 
-# [](#header-1)LCs here :) 
+# [](#header-1)LCs Here :) 
 
 ## [](#header-2) DFS traversals
 DFS traversal is a super basic and useful hack to solve tree problems or related. Good examples of such problems are LC 104 [Maximum Depth of Binary tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/) and [Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree/description/). Max Depth of BT should be very straight forward, using the DFS. Every time the function is poped from the recursion stack, return current depth + 1. If null node is reached, return 0 as current depth. Return all the depths to ```Math.max()```, which will filter out the branches with smaller depthes. Convert BST to Greater Tree is a little tricky. One place people(like me) may ignore is, when the DFS traversed all the nodes on the right side, the pointer will go back to the right most node on the left side, which does not have the previous value from the right side. To avoid this error, I used a class attribute called ```sum``` to record previous sums. When the node pointer go back to root and started the traverse the left side of tree, I still have the previous sum. ETC...
