@@ -3,7 +3,7 @@ layout: default
 ---
 # [](#header-1)Me, Here!
 
-Hi, my name is Mingya Ma. I am a senior student at University of Minnesota studying computer science. I am currently looking for jobs in software engineering and related fields. Plz contact me at maxxx950@umn.edu or 5857481507! Welcome to view my [LinkedIn profile](https://www.linkedin.com/in/mingya-m-273317a1), and you can also view my resume on the right side! 
+Hi, my name is Mingya Ma. I am a senior student at University of Minnesota studying computer science. I am currently looking for jobs in software engineering and related fields. Plz contact me at maxxx950@umn.edu or 5857481507! Welcome to have a look at my [LinkedIn profile](https://www.linkedin.com/in/mingya-m-273317a1), and you can also view my resume on LinkedIn! 
 
 # [](#header-1)LCs Here :) 
 
