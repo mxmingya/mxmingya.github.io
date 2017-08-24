@@ -13,7 +13,41 @@ DFS traversal is a super basic and useful hack to solve tree problems or related
 ### [](#header-3) Advanced DFS
 Two questions from LC:[Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/) and [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/discuss/) are good examples of solving BST problems using in-order traversal. One trick that are used in solutions of these two problems are: in-order traversal of BST follows the increasing order of node values in BST! [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/) basically trace back one previous node to find the swapped elements since the previous one element value should be greater than the current root value in BST. [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/discuss/) is much straight forward, just go to the left most node, and count down for k nodes, which gives us the Kth Smallest Node in BST! Ez Ez Ez! 
 ### [](#header-3) More DFS
-BST problems some times can be solved by DFS along with other algorithms to optimalize the solution. For instance, [House Robber III](https://leetcode.com/problems/house-robber-iii/discuss/) utilize both DP and In-Order Traversal. A good step-by-step explanation by [Renpeng Fang](https://discuss.leetcode.com/user/fun4leetcode) can be found here [Step by step tackling of the problem](https://discuss.leetcode.com/topic/39834/step-by-step-tackling-of-the-problem)
+BST problems some times can be solved by DFS along with other algorithms to optimalize the solution. For instance, [House Robber III](https://leetcode.com/problems/house-robber-iii/discuss/) utilize both DP and In-Order Traversal. A good step-by-step explanation by [Renpeng Fang](https://discuss.leetcode.com/user/fun4leetcode) can be found here [Step by step tackling of the problem](https://discuss.leetcode.com/topic/39834/step-by-step-tackling-of-the-problem).
+For instance:
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {    
+    public int rob(TreeNode root) {
+        return rob(root, new HashMap<TreeNode, Integer>());
+    }
+    
+    public int rob(TreeNode root, Map<TreeNode, Integer> nodeToRobbedMoney) {
+        if (root == null) return 0;
+        if ( nodeToRobbedMoney.containsKey(root)) return nodeToRobbedMoney.get(root);
+        int val = 0;
+        
+        if (root.left != null) 
+            val += rob(root.left.left, nodeToRobbedMoney) + rob(root.left.right, nodeToRobbedMoney);
+        if (root.right != null) 
+            val += rob(root.right.left,nodeToRobbedMoney) + rob(root.right.right,nodeToRobbedMoney);
+        
+        val = Math.max(val + root.val, rob(root.left,nodeToRobbedMoney) + rob(root.right,nodeToRobbedMoney));
+        //every time we compute a new cost of current node, we put it in the map. 
+        nodeToRobbedMoney.put(root, val);
+        
+        return val;
+    }
+}
+```
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
